@@ -18,6 +18,7 @@ public class Main {
         }catch (Exception e){
             e.printStackTrace();
         }
+
         JDABuilder jdaBuilder = JDABuilder.createDefault(TOKEN);
 
         jdaBuilder.build();

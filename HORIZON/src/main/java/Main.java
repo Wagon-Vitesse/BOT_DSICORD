@@ -20,6 +20,7 @@ public class Main {
         }
         JDABuilder jdaBuilder = JDABuilder.createDefault(TOKEN);
 
+
         jdaBuilder.build();
 
 

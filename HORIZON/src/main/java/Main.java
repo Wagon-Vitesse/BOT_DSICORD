@@ -2,10 +2,23 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.managers.AudioManager;
 
 import javax.security.auth.login.LoginException;
+import java.io.FileInputStream;
+import java.util.Properties;
 
 public class Main {
     public static void main(String[] args) throws LoginException {
-        JDABuilder jdaBuilder = JDABuilder.createDefault("MTA1ODg5ODAyNDgxNTkxOTE2Nw.Grr7g1.mWOL5CSzlse-hhk9EsgueZs5XZyhO8Pu7-Q6-s");
+
+        Properties properties = new Properties();
+        FileInputStream fileInputStream = null;
+        String TOKEN = "";
+        try {
+            fileInputStream = new FileInputStream("src/TOKEN.properties");
+            properties.load(fileInputStream);
+            TOKEN = properties.getProperty("TOKEN");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        JDABuilder jdaBuilder = JDABuilder.createDefault(TOKEN);
 
         jdaBuilder.build();
 
